@@ -22,16 +22,20 @@
 
             <div class="product-info">
                 <h2>{{ product }}</h2>
-                <p>{{ 'A pair of ' + product }}</p>
-                <p v-if="inventory > 10">In Stock</p>
+                <p v-if="inventory > 10">In Stock <span v-show="onSale">*On Sale!</span></p>
                 <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
                 <p v-else="Out of Stock"></p>
-                <p v-show="onSale">On Sale!</p>
+                
                 <ul>
                     <li v-for="variant in variants" :key="variant.id">
-                        <p>{{ variant.color }}</p>
+                        <p @mouseover="updateProduct(variant.image)">{{ variant.color }}</p>
                     </li>
                 </ul>
+                <button @click="addToCart">Add to cart</button>
+
+                <div class="cart">s
+                    <p>Cart({{ cart }})</p>
+                </div>
             </div>
         </div>
     </div>

@@ -9,13 +9,23 @@ var app = new Vue({
         variants: [
             {
                 id: 2234,
-                color: "green"
+                color: "green",
+                image: './assets/vmSocks-green-onWhite.jpg'
             },
             {
                 id: 2235,
-                color: "blue"
+                color: "blue",
+                image: './assets/vmSocks-blue-onWhite.jpg'
             }
-        ]
+        ],
+        cart: 0
+    },
+    methods: {
+        addToCart() {
+            this.cart += 1
+        },
+        updateProduct(image) {
+            this.image = image
+        }
     }
-
 })
